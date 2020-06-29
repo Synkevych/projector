@@ -1,24 +1,6 @@
-# README
+## Projector
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projector is a collaboration tool that organizes your projects into boards. In one glance, Projector tells you what's being worked on, who's working on what, and where something is in a process.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Stack:**
+	Ruby, Rails, Devise, Sidekiq, Redis, RSpec, Rubocop, Yardoc, Puma, Capistrano, Passenger, Nginx, AWS (EC2, S3), PostgreSQL, Rails API, Bootstrap, jQuery, Haml, Webpack, Github, Github Actions, Scrum.
