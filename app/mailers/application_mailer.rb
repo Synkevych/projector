@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: 'kv.065.ruby@gmail.com'
+  default from: 'support@projector.com'
   layout 'mailer'
 end
