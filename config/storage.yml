@@ -13,3 +13,4 @@ amazon:
   secret_access_key: <%= Rails.application.credentials.aws[:bucket_secret_access_key]  %>
   region: 'us-east-2'
   bucket: 'projector-bucket'
+q:q

@@ -11,5 +11,5 @@ class Notification < ApplicationRecord
   validates :notificationable, presence: true
   validates_inclusion_of :type, in: ALLOWED_TYPES
 
-  self.per_page = 5
+  self.per_page = 10
 end

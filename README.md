@@ -1,11 +1,51 @@
-# Projector
+<h1 align="center"> Projector </h1><br>
+<p align="center">
+  <a href="https://github.com/Synkevych/projector">
+    <img alt="Projector logo" title="RubyForms" src="/public/images/projector_logo.svg" width="75">
+  </a>
+</p>
+<br>
+<a href="https://codecov.io/gh/Kv065RubySSTeam/projector">
+  <img src="https://codecov.io/gh/Kv065RubySSTeam/projector/branch/master/graph/badge.svg" />
+</a>
+<a href="https://travis-ci.org/Kv065RubySSTeam/projecto">
+  <img src="https://travis-ci.org/Kv065RubySSTeam/projector.svg?branch=master" />
+</a>
+<a href="http://hits.dwyl.com/Synkevych/Kv065RubySSTeam/projector">
+  <img src="http://hits.dwyl.com/Synkevych/Kv065RubySSTeam/projector.svg" />
+</a>
+<p>
+  <img src="https://img.shields.io/badge/ruby-%23CC342D.svg?&style=for-the-badge&logo=ruby&logoColor=white"/>
+  <img src="https://img.shields.io/badge/rails%20-%23CC0000.svg?&style=for-the-badge&logo=ruby-on-rails&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AWS%20-%23FF9900.svg?&style=for-the-badge&logo=amazon-aws&logoColor=white"/>
+  <img src="https://img.shields.io/badge/nginx%20-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white"/>
+  <img src ="https://img.shields.io/badge/postgres-%23316192.svg?&style=for-the-badge&logo=postgresql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/travisci%20-%232B2F33.svg?&style=for-the-badge&logo=travis&logoColor=white"/>
+</p>
+<p align="center">
+Projector is a collaboration tool that organizes your projects into boards. In one glance, Projector tells you what's being worked on, who's working on what, and where something is in a process.
+</p>
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Responsibilities](#responsibilities)
+- [Getting started](#getting-started)
+- [Feedback](#feedback)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Introduction
 
 Projector is a collaboration tool that organizes your projects into boards. In one glance, Projector tells you what's being worked on, who's working on what, and where something is in a process.
 
-**Stack:**
-Ruby, Rails, Devise, Sidekiq, Redis, RSpec, Rubocop, Yardoc, Capistrano, Puma, Passenger, Nginx, AWS (EC2, S3), PostgreSQL, Rails API, Bootstrap, jQuery, Haml, Webpack, Github, Github Actions, Kanban, Frest Bootstrap Template.
-
 <img src="/public/images/projector_screenshot.png">
+
+**Technology Stack:**
+Ruby, Rails, Devise, Sidekiq, Redis, RSpec, Rubocop, Yardoc, Capistrano, Puma, Passenger, Nginx, AWS (EC2, S3, SES), PostgreSQL, Rails API, Bootstrap, jQuery, Haml, Webpack, Github, GitHub Actions, TravisCI, Kanban, Frest Bootstrap Template.
+
+## Features
 
 #### A few of the things you can do with Projector:
 
@@ -23,19 +63,22 @@ Create a public or private board for a specific type of task, such as "homework"
 
 ## Responsibilities
 
+On this project, I took part in the following:
+
 * Investigated Turbolinks and Rails-ujs for AJAX
 * Investigated JWT and jwt gem
 * Investigated Continuous Integration
 * Configure authentication functionality with Device gem
 * Implement Columns logic and UI
 * Implement Cards logic and UI
-* Configured AWS instance for deployment
 * Created index page for Cards
 * Wrote unit tests for Membership
 * Have added Time Tracking
 * Implemented User API and tests for it
 * Implemented Facebook Authentications using koala library
 * Added email notifications for Cards
+* Create and configure AWS instance for deployment
+* Create and configure access for AWS S3 and AWS SES
 * Implement deploying cron jobs using whenever gem
 
 ## Getting started
