@@ -6,7 +6,7 @@ set :stages, %w(production staging)
 set :default_stage, 'staging'
 
 set :application, "projector"
-set :repo_url, "https://github.com/Kv065RubySSTeam/projector.git"
+set :repo_url, "https://github.com/Synkevych/projector.git"
 
 set :user, 'ubuntu'
 set :app_name, 'projector'
