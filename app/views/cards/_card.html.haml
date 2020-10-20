@@ -3,11 +3,10 @@
               "data-position" => "#{card.position}"}
     .font-medium-1.text-bold-600
       = card.title
-      .kanban-footer.d-flex.justify-content-between.mt-1
-        .kanban-footer-left.d-flex
-          .font-small-3
-            - unless card.body.blank?
-              = card.body
+      .kanban-footer.mt-1
+        .font-small-3
+          - unless card.body.blank?
+            = card.body
       %p{:class => "tag-items-#{card.id}"}
         - if card.tags.present?
           %b Tags:

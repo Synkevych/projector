@@ -95,7 +95,7 @@ Rails.application.configure do
 
   # Amazon SES
   config.action_mailer.delivery_method = :ses
-  config.action_mailer.default_url_options = { host: 'ec2-3-16-14-1.us-east-2.compute.amazonaws.com' }
+  config.action_mailer.default_url_options = { host: '3.129.9.9' }
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector

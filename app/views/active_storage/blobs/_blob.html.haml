@@ -1,11 +1,15 @@
-.container
-  .row
-    %figure{:class => "attachment attachment--#{blob.representable? ? "preview" : "file"} attachment--#{blob.filename.extension}"}
-      - if blob.representable?
-        = image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ])
-      %figcaption.attachment__caption
-        - if caption = blob.try(:caption)
-          = caption
-        - else
-          %span.attachment__name= blob.filename
-          %span.attachment__size= number_to_human_size blob.byte_size
+%figure{:class => "attachment attachment--#{blob.representable? ? "preview" : "file"} attachment--#{blob.filename.extension}"}
+  - if blob.content_type.include? "image"
+    = image_tag blob
+  - elsif blob.content_type == 'application/pdf'
+    %i.bx.bxs-file-pdf
+  - elsif blob.content_type == 'text/x-scss'
+    %i.bx.bxs-file-css
+  - else
+    %i.bx.bxs-file
+  %figcaption.attachment__caption
+    - if caption = blob.try(:caption)
+      = caption
+    - else
+      %span.attachment__name= blob.filename
+      %span.attachment__size= number_to_human_size blob.byte_size

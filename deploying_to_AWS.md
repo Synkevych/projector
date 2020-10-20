@@ -53,12 +53,39 @@ ln -s /usr/share/rvm/bin/rvm .rvm/bin/rvm
 Create new bitbucket in your AWS Simple Storage Service
 Create access to this services
 
+region and bucket name you can find in  S3 -> Buckets -> Name of new bucket -> Access point
+Change file storage.yml to:
+```yml
+# Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
+amazon:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.aws[:bucket_access_key_id] %>
+  secret_access_key: <%= Rails.application.credentials.aws[:bucket_secret_access_key]  %>
+  region: 'us-east-2'
+  bucket: 'projector-kv065'
+```
+
+Go to Permissions -> CORS configuration and past
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+<CORSRule>
+    <AllowedOrigin>http://3.129.9.9</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>POST</AllowedMethod>
+    <AllowedMethod>PUT</AllowedMethod>
+    <AllowedHeader>*</AllowedHeader>
+</CORSRule>
+</CORSConfiguration>
+```
+
 ### Create AWS SES
 
 Create new Simple Email Service
 Create new access key to enable access
 
-### Run cap
+### Run capistrano
 
 ```bash
 cap production deploy
@@ -72,11 +99,19 @@ sudo reboot
 /sbin/reboot
 ```
 
-### Test Passenger
+### Test or reboot Passenger
 
 ```bash
 passenger-status
 sudo passenger-status --show=requests
+sudo passenger-config restart-app
+# error messages if start doesn't work is in folder tmp
+```
+
+Passenger write all requests and errors in the file **production.log**
+
+```bash
+tail -f /var/www/yourappname/current/log/staging.log
 ```
 
 ### Edit Nginx configuration file
@@ -107,7 +142,7 @@ sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 sudo service nginx restart
 ```
 
-### Create folders
+### Create folders for capistrano
 
 ```bash
 mkdir /home/ubuntu/projector/deploy/production
@@ -117,8 +152,17 @@ mkdir shared releases
 ```
 
 ### Copying master.key and database.yml files manually
-```
+
+```bash
 scp ~/Documents/projector/config/master.key ubuntu@3.129.9.9:/deploy/projector/production/shared/config
 
 scp ~/Documents/projector/config/database.yml ubuntu@3.129.9.9:/deploy/projector/production/shared/config
+```
+
+### Handle Sidekiq error
+
+Sidekiq write log in the file
+
+```bahs
+tail -f /var/www/yourappname/current/log/sidekiq.log
 ```
