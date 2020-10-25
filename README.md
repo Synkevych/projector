@@ -32,6 +32,7 @@ Projector is a collaboration tool that organizes your projects into boards. In o
 - [Features](#features)
 - [Responsibilities](#responsibilities)
 - [Getting started](#getting-started)
+- [Usage](#usage)
 - [Feedback](#feedback)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -231,6 +232,50 @@ $ rspec spec/requests/api/v1/authentication_request_spec.rb
 # See all options for running specs
 $ rspec --help
 ```
+
+## Usage
+
+### 1. Login or Sign in
+
+It is simple as possible. Use one of the types to log in to the program: facebook credentials or use your email address to create a new user.
+
+![login page](public/images/usage/projector_login.png)
+
+### 2. Create your own board
+
+Upon successful login, you will see all public user-created boards.
+
+![boards index page](public/images/usage/projector_index_boards.png)
+
+Here you can create a new board by clicking "Add new board". Provide a name, description and choose which type of board you want to create - private or public.
+
+![create a new board](public/images/usage/projector_create_new_board.png)
+
+### 3. Create new column
+
+After creating a new board, you can create a new column. The column is similar to the days of the week, so you can divide the task into a separate column. Click to "Add New Column", that create a new column with a template name, just hover over it and change name to your own.
+
+![create a new column](public/images/usage/projector_new_column.png)
+
+### 4. Create new card
+
+Cards it your task, you can add name and descriptions, add some image or link.
+
+![create a new card](public/images/usage/projector_new_card.png)
+
+### 5. Get more information about your cards
+
+By clicking on the card, you will see a card editing page where you can do a lot, add a assignee, add some tag, set a start date and create a duration for specific tasks, change history and add a comment.
+
+![edit card](public/images/usage/projector_edit_card.png)
+
+### 6. Notification
+
+![cards notifications](public/images/usage/projector_notifications.png)
+
+### 7. All your cards(from all boards)
+
+![cards index](public/images/usage/projector_cards_index.png)
 
 ## Feedback
 
