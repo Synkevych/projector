@@ -1,7 +1,7 @@
 <h1 align="center"> Projector </h1><br>
 <p align="center">
   <a href="https://github.com/Synkevych/projector">
-    <img alt="Projector logo" title="RubyForms" src="/public/images/projector_logo.svg" width="75">
+    <img alt="Projector logo" title="Projector" src="/public/images/projector_logo.svg" width="75">
   </a>
 </p>
 <br>
@@ -11,8 +11,8 @@
 <a href="https://travis-ci.org/Kv065RubySSTeam/projecto">
   <img src="https://travis-ci.org/Kv065RubySSTeam/projector.svg?branch=master" />
 </a>
-<a href="http://hits.dwyl.com/Synkevych/Kv065RubySSTeam/projector">
-  <img src="http://hits.dwyl.com/Synkevych/Kv065RubySSTeam/projector.svg" />
+<a href="http://hits.dwyl.com/Synkevych/projector">
+  <img src="http://hits.dwyl.com/Synkevych/projector.svg" />
 </a>
 <p>
   <img src="https://img.shields.io/badge/ruby-%23CC342D.svg?&style=for-the-badge&logo=ruby&logoColor=white"/>
