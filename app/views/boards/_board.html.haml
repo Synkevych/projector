@@ -1,19 +1,18 @@
 - boards.each do |board|
   %li.todo-item
     = link_to board_path(board), :id => 'new_board_link' do
-      .todo-title-wrapper.d-flex.justify-content-sm-between.justify-content-end.align-items-center
+      .todo-title-wrapper.d-flex.justify-content-sm-between
         .todo-title-area.d-flex
-          %p.todo-title.mx-50.m-0.truncate
+          %p.todo-title.mx-50.truncate
             = board.title
         .todo-item-action.d-flex.align-items-center
           .todo-badge-wrapper.d-flex
             - if board.public
-              %span.badge.badge-light-primary.badge-pill.ml-50
+              %span.badge.badge-light-primary.badge-pill
                 Public
             - else
-              %span.badge.badge-light-success.badge-pill.ml-50
+              %span.badge.badge-light-success.badge-pill
                 Private
             - if board.user.id == current_user.id
-              %span.badge.badge-light-warning.badge-pill.ml-50
+              %span.badge.badge-light-warning.badge-pill
                 My
-                

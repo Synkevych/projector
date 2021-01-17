@@ -13,8 +13,8 @@
 .container
   .row
     .col-md-12
-      .card{"data-board-id" => "#{(@board.id)}"}
-        %section#kanban-wrapper.pt-2.pb-2
+      .card
+        %section.py-2
           .container
             .row
               .col-md-4
@@ -34,24 +34,29 @@
                 = link_to '', export_board_path(@board), class: 'bx bx-download btn btn-icon btn-dark glow mr-1 mb-1 export-btn'
                 = link_to '', export_board_path(@board), class: 'bx bx-mail-send btn btn-icon btn-dark glow mr-1 mb-1 export-and-email-btn'
           .col-md
-            .board-title-desc.mb-2{:style => "cursor: default"}
+            .board-title-desc.text-center.my-2{:style => "cursor: default"}
               %h2
                 = @board.title
-              .divider.col-5
+              .divider.mx-5
                 .divider-text Descripion
               %p.card-text
                 = @board.description
+  .row
+    .col-md-12
+      .card{"data-board-id" => "#{(@board.id)}"}
+        %section#kanban-wrapper.py-2
+          .col-md
             .kanban-overlay
             %section#kanban-wrapper
-            - if can? :manage, @column
-              = link_to board_columns_path(@board), |
-                remote: true,                          |
-                method: :post,                          |
-                turbolinks: false,                     |
-                id: "add-kanban",                      |
-                class: "btn btn-primary mb-1" do
-                %i.bx.bx-add-to-queue.mr-50>
-                Add New Column
-              .kanban-container#kanban-container
-                = render  @columns
+              - if can? :manage, @column
+                = link_to board_columns_path(@board), |
+                  remote: true,                          |
+                  method: :post,                          |
+                  turbolinks: false,                     |
+                  id: "add-kanban",                      |
+                  class: "btn btn-primary mb-1" do
+                  %i.bx.bx-add-to-queue.mr-50>
+                  Add New Column
+                .kanban-container#kanban-container
+                  = render  @columns
           = render "memberships/index"
