@@ -33,6 +33,8 @@ Projector is a collaboration tool that organizes your projects into boards. In o
 - [Responsibilities](#responsibilities)
 - [Getting started](#getting-started)
 - [Usage](#usage)
+  - [UI](#UI)
+  - [API](#API)
 - [Feedback](#feedback)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -235,13 +237,15 @@ $ rspec --help
 
 ## Usage
 
-### 1. Login or Sign in
+### UI
+
+#### 1. Login or Sign in
 
 It is simple as possible. Use one of the types to log in to the program: facebook credentials or use your email address to create a new user.
 
 ![login page](public/images/usage/projector_login.png)
 
-### 2. Create your own board
+#### 2. Create your own board
 
 Upon successful login, you will see all public user-created boards.
 
@@ -251,31 +255,102 @@ Here you can create a new board by clicking "Add new board". Provide a name, des
 
 ![create a new board](public/images/usage/projector_create_new_board.png)
 
-### 3. Create new column
+#### 3. Create new column
 
 After creating a new board, you can create a new column. The column is similar to the days of the week, so you can divide the task into a separate column. Click to "Add New Column", that create a new column with a template name, just hover over it and change name to your own.
 
 ![create a new column](public/images/usage/projector_new_column.png)
 
-### 4. Create new card
+#### 4. Create new card
 
 Cards it your task, you can add name and descriptions, add some image or link.
 
 ![create a new card](public/images/usage/projector_new_card.png)
 
-### 5. Get more information about your cards
+#### 5. Get more information about your cards
 
 By clicking on the card, you will see a card editing page where you can do a lot, add a assignee, add some tag, set a start date and create a duration for specific tasks, change history and add a comment.
 
 ![edit card](public/images/usage/projector_edit_card.png)
 
-### 6. Notification
+#### 6. Notification
 
 ![cards notifications](public/images/usage/projector_notifications.png)
 
-### 7. All your cards(from all boards)
+#### 7. All your cards(from all boards)
 
 ![cards index](public/images/usage/projector_cards_index.png)
+
+### API
+
+#### 1. Login
+
+For the first you need to get Authorization Bearer token for make request to projectors API. So you need to login, or sign in.
+For example to login make request with json body content:
+
+POST <http://3.129.9.9/api/v1/login>
+
+```json
+{"email":"your@mail.com", "password":"password"}
+```
+
+The result of this request, information about user:
+
+```json
+{
+    "id": 2,
+    "email": "pupkin@mail.com",
+    "first_name": "Pupkin",
+    "last_name": "Anton",
+    "created_at": "2020-10-20T11:07:27.645+03:00",
+    "updated_at": "2020-10-25T23:33:34.050+02:00",
+    "receive_emails": true
+}
+```
+
+Now, you can find your token inside Headers(`Authorization: Bearer:`):
+
+```json
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+Cache-Control: max-age=0, private, must-revalidate
+Referrer-Policy: strict-origin-when-cross-origin
+Authorization: Bearer: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MDM2NzYwMTQsImp0aSI6ImVkYzY1ZjI3LWIxMjEtNDNhOS04YjQ0LTBkOTZlODZiNTJlNiJ9.YOPb9gQdRVKDpqh92F0nr56NOgyOKSr997Uo2HAV7eY
+```
+
+#### 2. Get information about your boards, columns or cards
+
+Let's make request for take all your board, provide your token inside Headers > Authorization > Bearer Token
+
+GET <http://3.129.9.9/api/v1/boards>
+Authorization Bearer Token: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MDM2NzYwMTQsImp0aSI6ImVkYzY1ZjI3LWIxMjEtNDNhOS04YjQ0LTBkOTZlODZiNTJlNiJ9.YOPb9gQdRVKDpqh92F0nr56NOgyOKSr997Uo2HAV7eY
+
+
+As a result you should see json with first 10 your boards.
+
+```json
+[
+    {
+        "id": 1,
+        "title": "Voluptas armo pecco.",
+        "description": "Ex crux patrocinor.",
+        "public": false,
+        "created_at": "2020-10-26T00:08:49.210+02:00",
+        "updated_at": "2020-10-26T00:08:49.210+02:00",
+        "creator": {
+            "id": 1,
+            "email": "admin@gmail.com",
+            "first_name": "Cassaundra",
+            "last_name": "Boyer",
+            "created_at": "2020-10-26T00:08:48.369+02:00",
+            "updated_at": "2020-10-26T00:15:04.597+02:00",
+            "receive_emails": true
+        }
+    }
+]
+```
 
 ## Feedback
 

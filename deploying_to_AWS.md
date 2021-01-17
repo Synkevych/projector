@@ -71,7 +71,7 @@ Go to Permissions -> CORS configuration and past
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
 <CORSRule>
-    <AllowedOrigin>http://3.129.9.9</AllowedOrigin>
+    <AllowedOrigin>http://youre_ip_addres</AllowedOrigin>
     <AllowedMethod>GET</AllowedMethod>
     <AllowedMethod>POST</AllowedMethod>
     <AllowedMethod>PUT</AllowedMethod>
@@ -83,7 +83,23 @@ Go to Permissions -> CORS configuration and past
 ### Create AWS SES
 
 Create new Simple Email Service
-Create new access key to enable access
+Create new access key to enable access using IAM
+
+Test your configuration inside you rails c
+
+```ruby
+ses = AWS::SES::Base.new( :access_key_id => 'abc', :secret_access_key => '123',
+:server => 'email.eu-west-1.amazonaws.com', :message_id_domain => 'eu-west-1.amazonses.com')
+
+ses = AWS::SES::Base.new( :access_key_id => 'AKIATTTHFGKFIDRMFZPR', :secret_access_key => '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', :server => 'email.us-east-2.amazonaws.com', :message_id_domain => 'us-east-2.amazonaws.com' )
+
+ses.send_email( :to => ['email@gmail.com'], :source => 'email@gmail.com', :subject => 'Subject Line', :text_body => 'Internal text body')
+```
+
+You can find you domain inside information about domain( if you have one), or email address
+
+'SocketError: Failed to open TCP connection to email.us-east-2.amazonses.com:443'
+Enable 433 port at the EC2 server > Security > Click to unique name of Security group.
 
 ### Run capistrano
 
@@ -122,7 +138,7 @@ sudo vim projector.conf
 # put this inside the file:
 server {
     listen 80;
-    #listen [::]:80 3.129.9.9;
+    #listen [::]:80 ip_address;
     server_name default_server;
     #listen 80 default_server;
     #listen [::]:80 default_server;
@@ -154,9 +170,9 @@ mkdir shared releases
 ### Copying master.key and database.yml files manually
 
 ```bash
-scp ~/Documents/projector/config/master.key ubuntu@3.129.9.9:/deploy/projector/production/shared/config
+scp ~/Documents/projector/config/master.key ubuntu@ip_address:/deploy/projector/production/shared/config
 
-scp ~/Documents/projector/config/database.yml ubuntu@3.129.9.9:/deploy/projector/production/shared/config
+scp ~/Documents/projector/config/database.yml ubuntu@ip_address:/deploy/projector/production/shared/config
 ```
 
 ### Handle Sidekiq error

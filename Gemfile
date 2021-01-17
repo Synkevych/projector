@@ -26,7 +26,7 @@ gem 'image_processing'
 gem 'aws-sdk-s3', require: false
 
 # Client library for Amazon's Simple Email Service's REST API
-gem 'aws-ses', '~> 0.6.0'
+gem "aws-ses", "~> 0.7.0", :require => 'aws/ses'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
